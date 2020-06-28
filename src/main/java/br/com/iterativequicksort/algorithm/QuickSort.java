@@ -1,5 +1,7 @@
 package br.com.iterativequicksort.algorithm;
 
+import br.com.datastructures.stack.Stack;
+
 public class QuickSort {
 	
 	protected int[] array;
@@ -31,27 +33,25 @@ public class QuickSort {
 	}
 	
 	public void sort(int p, int r){ 
-        int[] stack = new int[r - p + 1]; 
+        Stack<Integer> stack = new Stack<>();
+ 
+        stack.push(p);
+        stack.push(r);
   
-        int top = -1; 
-   
-        stack[++top] = p; 
-        stack[++top] = r; 
-  
-        while (top >= 0) { 
-            r = stack[top--]; 
-            p = stack[top--]; 
-
+        while (!stack.isEmpty()) { 
+            r = stack.pop();
+            p = stack.pop();
+            
             int q = partition(p, r); 
   
             if (q - 1 > p) { 
-                stack[++top] = p; 
-                stack[++top] = q - 1; 
+                stack.push(p);
+                stack.push(q-1);
             } 
   
             if (q + 1 < r) { 
-                stack[++top] = q + 1; 
-                stack[++top] = r; 
+            	stack.push(q+1);
+            	stack.push(r);
             } 
         } 
 	}
