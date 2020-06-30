@@ -4,7 +4,7 @@ import java.util.Random;
 
 import br.com.datastructures.stack.Stack;
 
-public class RandomQuickSort extends QuickSort {
+public class RandomQuickSort {
 	
 	private static void swap(int[] array, int i, int j) {
 		int temp = array[i];
