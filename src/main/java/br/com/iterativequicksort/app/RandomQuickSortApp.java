@@ -23,10 +23,11 @@ public class RandomQuickSortApp {
 	public static void main(String[] args) throws IOException {	
 		Scanner scanner = new Scanner(System.in);
 		
-		int n = Integer.parseInt(scanner.nextLine());
-		int[] array = build(n);
-		
-		RandomQuickSort.sort(array, 0, n-1);
+		if(scanner.hasNextLine()) {
+			int n = Integer.parseInt(scanner.nextLine());
+			int[] array = build(n);
+			RandomQuickSort.sort(array, 0, n-1);
+		}
 		
 		scanner.close();
 	}

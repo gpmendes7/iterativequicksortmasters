@@ -1,6 +1,7 @@
 package br.com.iterativequicksort.app;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import br.com.iterativequicksort.algorithm.QuickSort;
@@ -23,12 +24,13 @@ public class QuickSortApp {
 	public static void main(String[] args) throws IOException {	
 		Scanner scanner = new Scanner(System.in);
 		
-		int n = Integer.parseInt(scanner.nextLine());
-		int[] array = build(n);
-		
-		QuickSort.sort(array, 0, n-1);
-		
-		scanner.close();
+		if(scanner.hasNextLine()) {
+			int n = Integer.parseInt(scanner.nextLine());
+			int[] array = build(n);
+			QuickSort.sort(array, 0, n-1);
+		}
+	
+		//scanner.close();
 	}
 
 }
